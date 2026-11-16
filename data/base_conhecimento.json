@@ -1,0 +1,256 @@
+[
+    {
+        "id": 1,
+        "categoria": "Documentos Pessoais",
+        "titulo": "Segunda via da Carteira de Identidade (RG)",
+        "palavras_chave": [
+            "rg",
+            "identidade",
+            "carteira de identidade",
+            "segunda via",
+            "extravio"
+        ],
+        "resposta": "A primeira via e gratuita e a segunda via custa R$ 38,00 (paga via guia no portal). O agendamento e obrigatorio pelo portal e o documento fica pronto em 10 dias uteis.",
+        "documentos": [
+            "Certidao de nascimento ou casamento",
+            "Comprovante de residencia (ultimos 90 dias)",
+            "BO (roubo/furto) ou declaracao de extravio no balcao (perda)"
+        ],
+        "onde": "Posto de Identificacao de Aurora (agendamento previo no portal)",
+        "fonte": "Central do Cidadao de Aurora - Ficha FC-01",
+        "verificado_em": "2026-10-01"
+    },
+    {
+        "id": 2,
+        "categoria": "Documentos Pessoais",
+        "titulo": "Inscricao e regularizacao de CPF",
+        "palavras_chave": [
+            "cpf",
+            "inscricao",
+            "regularizar",
+            "comprovante",
+            "cadastro de pessoa fisica"
+        ],
+        "resposta": "Pelo portal e gratuito e nao exige agendamento, com comprovante disponivel em ate 2 dias uteis. O atendimento presencial tem taxa de R$ 7,00.",
+        "documentos": [
+            "Documento original com foto",
+            "Certidao de nascimento ou casamento",
+            "Documento do responsavel (para menores de 12 anos)"
+        ],
+        "onde": "Portal da Central do Cidadao ou balcao de atendimento presencial",
+        "fonte": "Central do Cidadao de Aurora - Ficha FC-02",
+        "verificado_em": "2026-10-01"
+    },
+    {
+        "id": 3,
+        "categoria": "Documentos Pessoais",
+        "titulo": "Emissao e transferencia do Titulo de Eleitor",
+        "palavras_chave": [
+            "titulo",
+            "titulo de eleitor",
+            "votar",
+            "voto",
+            "transferencia",
+            "zona eleitoral"
+        ],
+        "resposta": "Servico gratuito para primeira via, segunda via e transferencia. O voto e obrigatorio de 18 a 69 anos e facultativo aos 16, 17 e acima de 70 anos. O cadastro fecha 150 dias antes da eleicao.",
+        "documentos": [
+            "Documento original com foto",
+            "Comprovante de residencia dos ultimos 90 dias (para transferencia)"
+        ],
+        "onde": "Portal da Central do Cidadao ou balcao da Central Eleitoral de Aurora",
+        "fonte": "Central do Cidadao de Aurora - Ficha FC-03",
+        "verificado_em": "2026-10-01"
+    },
+    {
+        "id": 4,
+        "categoria": "Documentos Pessoais",
+        "titulo": "Carteira de Trabalho Digital (CTPS)",
+        "palavras_chave": [
+            "carteira de trabalho",
+            "ctps",
+            "emprego",
+            "digital",
+            "primeiro emprego"
+        ],
+        "resposta": "Totalmente gratuita e disponivel imediatamente apos o cadastro no portal ou aplicativo, sem necessidade de agendamento.",
+        "documentos": [
+            "CPF",
+            "Documento original com foto",
+            "Acompanhamento de responsavel legal (menores de 18 anos)"
+        ],
+        "onde": "Portal ou aplicativo da Central do Cidadao",
+        "fonte": "Central do Cidadao de Aurora - Ficha FC-04",
+        "verificado_em": "2026-10-01"
+    },
+    {
+        "id": 5,
+        "categoria": "Documentos Pessoais",
+        "titulo": "Segunda via de Certidoes (Nascimento, Casamento e Obito)",
+        "palavras_chave": [
+            "certidao",
+            "certidao de nascimento",
+            "casamento",
+            "obito",
+            "cartorio",
+            "isencao"
+        ],
+        "resposta": "Pelo portal (PDF) custa R$ 49,00 (3 dias uteis). No balcao custa R$ 55,00 (5 dias uteis). Familias que comprovarem baixa renda no balcao tem isencao total da taxa.",
+        "documentos": [
+            "Documento original com foto do solicitante",
+            "Dados do registro (nome e data do evento)",
+            "Comprovacao de baixa renda (se pedir isencao no balcao)"
+        ],
+        "onde": "Portal da Central do Cidadao ou Cartorio Central de Aurora",
+        "fonte": "Central do Cidadao de Aurora - Ficha FC-05",
+        "verificado_em": "2026-10-01"
+    },
+    {
+        "id": 6,
+        "categoria": "Documentos Pessoais",
+        "titulo": "Renovacao da Carteira Nacional de Habilitacao (CNH)",
+        "palavras_chave": [
+            "cnh",
+            "carteira de motorista",
+            "habilitacao",
+            "renovar",
+            "renovacao",
+            "vencida"
+        ],
+        "resposta": "Taxa de R$ 180,00 mais exame medico em clinica credenciada. Fica pronta em 7 dias uteis. Pode ser renovada a partir de 30 dias antes do vencimento (vencida ha mais de 30 dias impede dirigir).",
+        "documentos": [
+            "CNH atual",
+            "Comprovante de residencia (ultimos 90 dias)",
+            "Laudo do exame medico credenciado"
+        ],
+        "onde": "Clinica credenciada e Posto de Atendimento (agendamento obrigatorio no portal)",
+        "fonte": "Central do Cidadao de Aurora - Ficha FC-06",
+        "verificado_em": "2026-10-01"
+    },
+    {
+        "id": 7,
+        "categoria": "Atendimento e Direitos",
+        "titulo": "Horarios, Agendamento e Atendimento por Terceiros",
+        "palavras_chave": [
+            "horario",
+            "sabado",
+            "agendamento",
+            "terceiros",
+            "procuracao",
+            "prioritario",
+            "libras"
+        ],
+        "resposta": "Atendimento presencial de segunda a sexta, das 8h as 17h (fechado aos sabados). Terceiros podem retirar documentos com procuracao simples. Interprete de Libras deve ser agendado com 48h de antecedencia.",
+        "documentos": [
+            "Documento original com foto",
+            "Procuracao simples e documento do terceiro (quando aplicavel)"
+        ],
+        "onde": "Unidades presenciais da Central do Cidadao de Aurora",
+        "fonte": "Central do Cidadao de Aurora - Ficha FC-07",
+        "verificado_em": "2026-10-01"
+    },
+    {
+        "id": 8,
+        "categoria": "Atendimento e Direitos",
+        "titulo": "Tarifa Social de Energia Eletrica (Desconto na Conta de Luz)",
+        "palavras_chave": [
+            "tarifa social",
+            "desconto",
+            "conta de luz",
+            "baixa renda",
+            "cadunico",
+            "energia barata"
+        ],
+        "resposta": "Garante descontos de 10% a 65% na conta de luz residencial para familias inscritas no CadUnico com renda per capita de ate meio salario minimo ou beneficiarios do BPC.",
+        "documentos": [
+            "CPF",
+            "Documento com foto",
+            "Numero de Identificacao Social (NIS) ou numero do BPC",
+            "Conta de energia recente"
+        ],
+        "onde": "CRAS do municipio (para atualizar CadUnico) e distribuidora de energia local",
+        "fonte": "https://www.gov.br/aneel/pt-br/assuntos/tarifa-social",
+        "verificado_em": "2026-11-10"
+    },
+    {
+        "id": 9,
+        "categoria": "Energia e Sustentabilidade",
+        "titulo": "Chuveiro Eletrico: Modo Verao vs Modo Inverno (Economia Imediata)",
+        "palavras_chave": [
+            "chuveiro",
+            "banho",
+            "modo verao",
+            "inverno",
+            "consumo",
+            "economizar energia",
+            "kwh"
+        ],
+        "resposta": "Um chuveiro de 5500W usado 30 min/dia no modo Inverno consome 82,5 kWh/mes (aprox. R$ 70,12). Mudar para o modo Verao (3200W) reduz o consumo para 48,0 kWh/mes (R$ 40,80), gerando economia de 41,8% sem custo de instalacao. Limitacao: agua menos quente em dias frios.",
+        "documentos": [
+            "Nenhum documento necessario (acao pratica residencial)"
+        ],
+        "onde": "Chave seletora do proprio chuveiro eletrico residencial",
+        "fonte": "PROCEL / EPE - Tabela de Consumo Residencial (Base: R$ 0,85/kWh)",
+        "verificado_em": "2026-11-12"
+    },
+    {
+        "id": 10,
+        "categoria": "Energia e Sustentabilidade",
+        "titulo": "Aquecedor Solar de Baixo Custo (ASBC) vs Chuveiro Eletrico",
+        "palavras_chave": [
+            "aquecedor solar",
+            "energia solar",
+            "renovavel",
+            "asbc",
+            "agua quente",
+            "sustentavel"
+        ],
+        "resposta": "Alternativa renovavel feita com tubos de PVC e garrafas PET/caixas acessiveis (custo estimado de R$ 450 a R$ 700). Substitui ate 70% do aquecimento eletrico do banho (economia de ~57,7 kWh/mes ou R$ 49,00/mes), pagando-se em 10 a 14 meses e evitando ~45 kg de CO2/ano. Limitacao: depende de irradiacao solar e espaco no telhado.",
+        "documentos": [
+            "Nenhum documento necessario (instalacao residencial simples)"
+        ],
+        "onde": "Oficinas comunitarias de sustentabilidade ou lojas de materiais de construcao",
+        "fonte": "Sociedade do Sol / EPE - Eficiencia Energetica Residencial",
+        "verificado_em": "2026-11-12"
+    },
+    {
+        "id": 11,
+        "categoria": "Energia e Sustentabilidade",
+        "titulo": "Iluminacao LED vs Lampadas Fluorescentes e Incandescentes",
+        "palavras_chave": [
+            "lampada",
+            "led",
+            "iluminacao",
+            "fluorescente",
+            "luz",
+            "trocar lampada"
+        ],
+        "resposta": "Trocar 5 lampadas fluorescentes compactas (15W) por LED (9W) ligadas 5h/dia reduz o consumo mensal de 11,25 kWh para 6,75 kWh (economia de 40% e maior vida util de 25.000h). Custo medio de R$ 8,00 por lampada LED.",
+        "documentos": [
+            "Nenhum documento necessario"
+        ],
+        "onde": "Supermercados ou lojas de material eletrico (procurar Selo PROCEL A)",
+        "fonte": "https://www.gov.br/mme - Programa Nacional de Conservacao de Energia Eletrica (PROCEL)",
+        "verificado_em": "2026-11-12"
+    },
+    {
+        "id": 12,
+        "categoria": "Energia e Sustentabilidade",
+        "titulo": "Geladeira Antiga e Borracha de Vedacao: Combate ao Desperdicio",
+        "palavras_chave": [
+            "geladeira",
+            "borracha",
+            "vedacao",
+            "selo procel",
+            "eletrodomestico",
+            "desperdicio"
+        ],
+        "resposta": "Uma geladeira antiga ou com borracha ressecada pode consumir ate 90 kWh/mes (R$ 76,50), enquanto um modelo novo Selo Procel A consome cerca de 35 kWh/mes (R$ 29,75). Trocar a borracha custa entre R$ 40 e R$ 80 e reduz imediatamente a perda termica.",
+        "documentos": [
+            "Nota fiscal (caso participe de programas de troca gratuita das distribuidoras)"
+        ],
+        "onde": "Assistencia tecnica local ou programas de eficiencia energetica da distribuidora",
+        "fonte": "ANEEL - Programa de Eficiencia Energetica (PEE)",
+        "verificado_em": "2026-11-12"
+    }
+]
