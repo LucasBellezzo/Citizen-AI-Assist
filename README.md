@@ -2,102 +2,130 @@
 
 Projeto desenvolvido para a **Global Solution 2026.2 (FIAP — 1CC)** integrando as disciplinas de **Pensamento Computacional e Automação com Python (PCP)** e **Soluções em Energias Renováveis e Sustentáveis (SERS)**.
 
-## Integrantes da Equipe
+## Integrantes
 - **Lucas Bellezzo Figueiredo** — RM569734
 - **Matheus Sabino da Silva Guedes** — RM572907
 
 ---
 
-## 1. Público-Alvo, Problema e ODS Relacionados
-- **Público-alvo:** Famílias de baixa renda e cidadãos em situação de vulnerabilidade socioeconômica.
-- **Problema:** Dificuldade de acesso a informações claras, confiáveis e livres de linguagem burocrática sobre emissão de documentos essenciais (necessários para programas sociais e emprego) e estratégias práticas para reduzir o gasto elevado com energia elétrica residencial.
-- **Objetivos de Desenvolvimento Sustentável (ODS - ONU):**
-  - **ODS 7 (Energia Limpa e Acessível):** Promoção da eficiência energética doméstica e disseminação de tecnologias renováveis de baixo custo (Aquecedor Solar ASBC).
-  - **ODS 10 (Redução das Desigualdades):** Democratização do acesso à informação sobre direitos civis, isenção de taxas e Tarifa Social de Energia Elétrica.
-  - **ODS 16 (Paz, Justiça e Instituições Eficazes):** Transparência na orientação sobre serviços públicos e documentos civis.
+## 1. Para quem foi feito e qual problema resolve
+
+O assistente foi pensado para **famílias de baixa renda e pessoas em situação de vulnerabilidade** que muitas vezes não sabem onde tirar um documento, como acessar um benefício ou o que fazer para pagar menos na conta de luz.
+
+A informação existe, mas está espalhada em sites com linguagem burocrática ou em páginas difíceis de navegar. O Citizen Assist AI reúne essas orientações em um único lugar, em linguagem simples, sempre indicando a fonte oficial.
+
+**ODS relacionados:**
+- **ODS 7 — Energia Limpa e Acessível:** o assistente explica como economizar energia em casa e como funciona a Tarifa Social.
+- **ODS 10 — Redução das Desigualdades:** facilita o acesso à informação sobre documentos e direitos civis.
+- **ODS 16 — Instituições Eficazes:** todas as respostas têm fonte oficial verificada.
 
 ---
 
-## 2. Estrutura do Repositório
-```text
-citizen-assist-ai/
-├── README.md                          # Documentação geral e relatórios das disciplinas
-├── main.py                            # Ponto de entrada e menu interativo no terminal
-├── orientacao.py                      # Classe Orientacao (representação e exibição)
-├── base_conhecimento.py               # Classe BaseConhecimento (carregamento, normalização e busca)
-├── assistente.py                      # Classe Assistente (atendimento, segurança, histórico e CSV)
-├── data/
-│   ├── base_conhecimento.json         # Base verificada (12 orientações em 3 categorias)
-│   ├── historico.json                 # Registro automático dos atendimentos
-│   └── atendimentos.csv               # Exportação estruturada via csv.DictWriter
-└── docs_sers/
-    └── analise_energetica_sers.md     # Estudo completo, fórmulas e tabela comparativa de SERS
+## 2. Como rodar o projeto
+
+Você precisa do **Python 3.10 ou mais recente**. Não é necessário instalar nada além disso — o projeto usa só a biblioteca padrão do Python.
+
+```bash
+git clone https://github.com/LucasBellezzo/citizen-ai-assist.git
+cd citizen-ai-assist
+python main.py
 ```
 
 ---
 
-## 3. Como Executar o Projeto
-1. Certifique-se de ter o **Python 3.10+** instalado (não são necessárias bibliotecas externas; utiliza apenas a biblioteca padrão: `json`, `csv`, `time`, `os`, `datetime`).
-2. Clone o repositório e acesse a pasta raiz:
-   ```bash
-   git clone https://github.com/seu-usuario/citizen-assist-ai.git
-   cd citizen-assist-ai
-   ```
-3. Execute o programa principal:
-   ```bash
-   python main.py
-   ```
+## 3. O que tem no repositório
+
+```text
+citizen-assist-ai/
+├── README.md                          # Este arquivo
+├── main.py                            # Ponto de entrada — roda o menu no terminal
+├── orientacao.py                      # Representa uma orientação da base
+├── base_conhecimento.py               # Carrega o JSON e faz a busca
+├── assistente.py                      # Controla o atendimento, histórico e exportação
+├── data/
+│   ├── base_conhecimento.json         # 12 orientações verificadas em 3 categorias
+│   ├── historico.json                 # Registros dos atendimentos realizados
+│   └── atendimentos.csv               # Exportação dos atendimentos em CSV
+└── docs_sers/
+    └── analise_energetica_sers.md     # Estudo completo de eficiência energética (SERS)
+```
 
 ---
 
-## 4. Arquitetura e Regra de Pontuação (PCP)
-O sistema foi estruturado utilizando **Programação Orientada a Objetos (POO) por composição**, onde `Assistente` possui uma instância de `BaseConhecimento`, que por sua vez gerencia uma lista de objetos `Orientacao`.
+## 4. Como o assistente encontra as respostas
 
-### Normalização e Busca por Regras
-Antes da comparação, perguntas, palavras-chave e títulos passam pela função `normalizar()` (conversão para minúsculas, remoção de acentos e eliminação de pontuação).
-- **Palavra-chave exata presente na pergunta:** `+3 pontos`
-- **Palavra da pergunta (4 letras ou mais) presente no título:** `+1 ponto`
+O sistema não usa IA externa — toda a lógica de busca é feita por regras simples e transparentes.
 
-### Níveis de Confiança
-- **6 pontos ou mais:** Confiança **ALTA**
-- **3 a 5 pontos:** Confiança **MÉDIA**
-- **Menos de 3 pontos:** Resposta **Não encontrada** (o sistema sugere termos e lista as categorias disponíveis).
+Antes de comparar, a pergunta passa por uma **normalização**: tudo vira minúscula, acentos são removidos e pontuação é ignorada. Assim "Cartão SUS", "cartao sus" e "CARTAO SUS" são tratados da mesma forma.
 
-### Segurança e Privacidade
-- Nenhuma pergunta é enviada para APIs externas.
-- Entradas contendo `@` ou `8 ou mais dígitos` (como CPF, RG ou telefone) são bloqueadas imediatamente antes de qualquer processamento ou gravação em log.
+**Como a pontuação funciona:**
+- Se uma palavra-chave da orientação aparece na pergunta → **+3 pontos**
+- Se uma palavra da pergunta (com 4 letras ou mais) aparece no título → **+1 ponto**
 
----
+**Níveis de confiança:**
+- **6 pontos ou mais** → Confiança ALTA
+- **3 a 5 pontos** → Confiança MÉDIA
+- **Menos de 3 pontos** → Não encontrado (o assistente sugere outras palavras e mostra as categorias)
 
-## 5. Contribuição de Soluções em Energias Renováveis e Sustentáveis (SERS)
-A análise energética completa encontra-se em `docs_sers/analise_energetica_sers.md` e foi integrada diretamente às orientações `ID 8`, `ID 9`, `ID 10`, `ID 11` e `ID 12` da base de conhecimento.
-
-### Resumo da Comparação (Aquecimento de Água — Família de 4 pessoas / 30 min diários)
-- **Cenário Base (Chuveiro Elétrico 5500W - Modo Inverno):** Consumo de `82,5 kWh/mês` (`R$ 70,13/mês` | `64,35 kg CO2/ano`).
-- **Alternativa 1 (Eficiência Energética — Modo Verão 3200W):** Reduz o consumo para `48,0 kWh/mês` (`R$ 40,80/mês`), economizando **41,8%** (`R$ 29,33/mês`) com **custo zero** de implantação.
-- **Alternativa 2 (Fonte Renovável — Aquecedor Solar de Baixo Custo - ASBC):** Reduz o consumo elétrico do chuveiro em **70%** (`24,75 kWh/mês` | `R$ 21,04/mês`), economizando `R$ 49,09/mês`, com investimento estimado de `R$ 580,00` (*payback* de ~11,8 meses) e redução de `45,05 kg CO2/ano`.
+**Privacidade:** o assistente nunca pede nome, CPF ou telefone. Qualquer entrada com 8 ou mais dígitos ou com @ é bloqueada automaticamente antes de qualquer processamento.
 
 ---
 
-## 6. Resultados dos Testes com Usuários
-O protótipo foi testado com **4 pessoas** externas à equipe, totalizando **12 atendimentos** (combinando perguntas livres sobre documentos e energia):
-- **Taxa de resposta encontrada:** `91,7%` (11 de 12 atendimentos)
-- **Taxa de acerto (ajudou o usuário):** `91,7%`
-- **Tempo médio para encontrar a informação:** `8,4 segundos`
-- **Tentativas médias por atendimento:** `1,1`
-- **Nota média de facilidade de uso (1 a 5):** `4,8 / 5,0`
-- **Dúvida sem solução identificada no teste:** *"Como pedir desconto na conta de luz?"* (inicialmente não continha o termo `"conta de luz"` nas palavras-chave da Tarifa Social).
-- **Melhoria implementada após o teste:** Inclusão das palavras-chave `"conta de luz"` e `"energia barata"` na orientação ID 8 (`base_conhecimento.json`), elevando a busca para confiança ALTA.
+## 5. Parte de Energia e Sustentabilidade (SERS)
+
+A análise completa está em `docs_sers/analise_energetica_sers.md` e foi integrada às orientações de ID 8 a 12 da base de conhecimento.
+
+**O que foi comparado:** aquecimento de água para uma família de 4 pessoas, usando 30 minutos de chuveiro por dia, durante um mês.
+
+| Alternativa | Consumo mensal | Custo/mês | Economia | Investimento |
+|---|---|---|---|---|
+| Chuveiro 5.500W (modo inverno) | 82,5 kWh | R$ 70,13 | — | — |
+| Chuveiro 3.200W (modo verão) | 48,0 kWh | R$ 40,80 | R$ 29,33 (41,8%) | R$ 0,00 |
+| Aquecedor Solar (ASBC) | 24,75 kWh | R$ 21,04 | R$ 49,09 (70%) | ~R$ 580,00 |
+
+*Tarifa usada como referência: R$ 0,85/kWh (média residencial ANEEL). Fator de emissão CO₂: 0,065 kg/kWh (MCTI/SIN).*
+
+O aquecedor solar usado como referência é o **ASBC (Aquecedor Solar de Baixo Custo)**, tecnologia social desenvolvida pela Sociedade do Sol, feita com tubos de PVC e materiais acessíveis. O retorno do investimento estimado é de cerca de **12 meses**.
+
+**Fontes:**
+- Tarifa: [ANEEL — Tarifas de Energia](https://www.aneel.gov.br/tarifas)
+- Fator de emissão: [MCTI — Fatores de Emissão](https://antigo.mctic.gov.br/mctic/opencms/ciencia/SEPED/clima/textosDoEMFA_emissoes_CO2.html)
+- Tecnologia ASBC: [Sociedade do Sol](https://www.sociedadedosol.org.br)
+- Programa de Eficiência Energética: [PROCEL/Eletrobras](https://eletrobras.com/pt/Paginas/Procel.aspx)
 
 ---
 
-## 7. Limitações do Sistema
-1. **Busca lexical:** Como o motor utiliza correspondência exata de substrings normalizadas, sinônimos não cadastrados nas palavras-chave podem gerar baixa pontuação.
-2. **Estimativas energéticas:** Os cálculos de economia e *payback* do módulo SERS consideram tarifas médias (`R$ 0,85/kWh`) e irradiação solar padrão, variando conforme a região geográfica e hábitos de cada família.
-3. **Caráter informativo:** O assistente não realiza agendamentos reais nem consultas a bases governamentais.
+## 6. Resultado dos testes com usuários
+
+O assistente foi testado com **4 pessoas** de fora da equipe, totalizando **12 atendimentos** entre os dias 15 e 16 de novembro de 2026.
+
+| Indicador | Resultado |
+|---|---|
+| Respostas encontradas | 91,7% (11 de 12) |
+| Respostas que ajudaram | 91,7% |
+| Tempo médio para encontrar | 8,4 segundos |
+| Tentativas por atendimento | 1,1 em média |
+| Nota de facilidade (1 a 5) | 4,8 / 5,0 |
+
+**Dúvida que não foi respondida no primeiro teste:**
+*"Como pedir desconto na conta de luz?"* — a pergunta não bateu com as palavras-chave cadastradas.
+
+**Melhoria feita a partir disso:**
+Adicionamos `"conta de luz"` e `"energia barata"` às palavras-chave da orientação ID 8 (Tarifa Social). Depois dessa mudança, a mesma pergunta passou a ser encontrada com confiança ALTA.
+
+Dos 12 atendimentos, **5 foram sobre energia** (IDs 8, 9, 10, 10 e 11), com taxa de resposta de 80% antes da melhoria e 100% depois.
 
 ---
 
-## 8. Links dos Vídeos Técnicos (YouTube - Não Listado)
-- **Vídeo Técnico PCP (5 a 8 min):** `[INSERIR LINK DO YOUTUBE AQUI]`
-- **Vídeo Técnico SERS (até 3 min):** `[INSERIR LINK DO YOUTUBE AQUI]`
+## 7. Limitações
+
+1. **Busca por palavras exatas:** sinônimos que não estão cadastrados nas palavras-chave podem não ser encontrados.
+2. **Estimativas de energia:** os cálculos de economia usam tarifas e irradiação solar médias — os valores reais variam conforme a região e os hábitos de cada família.
+3. **Só informa, não age:** o assistente não faz agendamentos nem consulta sistemas do governo em tempo real.
+
+---
+
+## 8. Vídeos técnicos
+
+- **Vídeo PCP (5 a 8 min):** `[INSERIR LINK DO YOUTUBE AQUI]`
+- **Vídeo SERS (até 3 min):** `[INSERIR LINK DO YOUTUBE AQUI]`
